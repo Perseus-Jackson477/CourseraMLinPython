@@ -28,13 +28,16 @@ def graddec(X,y,theta,alpha,num_iters):
         data[i][0]=computeCost(X,y,theta)
     return theta,data
 #Loading Data
-path=os.getcwd()+"\ex1data1.txt"
-df=pd.read_csv(path,header=None)
-X=pd.DataFrame(df.loc[:,0])
-y=df.loc[:,1]
+def setup():
+    path=os.getcwd()+"\ex1"+"\ex1data1.txt"
+    df=pd.read_csv(path,header=None)
+    X=pd.DataFrame(df.loc[:,0])
+    y=df.loc[:,1]
+    X.insert(0,1,1)
+    return X,y
+X,y=setup()
 #2.2 
 m=len(X)
-X.insert(0,1,1)
 theta =[0,0]
 iterations = 1500;
 alpha = 0.01;
