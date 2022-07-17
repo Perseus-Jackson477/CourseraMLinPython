@@ -4,12 +4,12 @@ def warmUpExercise():
     return np.eye(5)
 #2.1
 def plotData(X,y):
-    plt.plot(X,y,'x',)
+    plt.plot(X.iloc[:,1],y,'x',label="Actual Data")
     plt.xlabel("Population of City in 10,000")
     plt.ylabel("Profit in $10,000")
     plt.xlim(4,24)
     plt.ylim(-5,25)
-    plt.legend
+    plt.legend()
     plt.show()
 #2.2
 def computeCost(X,y,theta):
@@ -40,11 +40,6 @@ iterations = 1500;
 alpha = 0.01;
 theta,data=graddec(X,y,theta,alpha,iterations)
 print("Theta computed from gradient descent is: ",theta[0],theta[1])
-plt.plot(X.iloc[:,1],y,'x',label="Actual Data")
-plt.xlabel("Population of City in 10,000")
-plt.ylabel("Profit in $10,000")
-plt.xlim(4,24)
-plt.ylim(-5,25)
 plt.plot(X.iloc[:,1],np.dot(X,theta),label="Linear reg")
 plt.legend()
 plt.show()
