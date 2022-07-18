@@ -1,5 +1,7 @@
 from cv2 import norm
 import pandas as pd, numpy as np, matplotlib.pyplot as plt,os
+
+from torch import normal
 def setup():
     path=os.getcwd()+"\ex1"+"\ex1data2.txt"
     df=pd.read_csv(path,header=None)
@@ -15,7 +17,7 @@ def std(x):
     x=np.array(x)
     x=x-myu
     std=sum(x**2)/len(x)
-    return std
+    return std**0.5
 def normalize(x):
     sd=std(x)
     myu=average(x)
@@ -23,7 +25,6 @@ def normalize(x):
     x=(x-myu)/sd
     return x
 X.iloc[:,0]=normalize(X.iloc[:,0])
-print()
 X.iloc[:,1]=normalize(X.iloc[:,1])
 y=normalize(y)
 X.insert(0,2,1)
